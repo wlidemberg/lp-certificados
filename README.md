@@ -1,73 +1,71 @@
-# React + TypeScript + Vite
+# 🚀 Landing Page de Certificados Digitais
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Projeto de Landing Page construído com foco em Arquitetura de Software e aplicação dos princípios de Programação Orientada a Objetos (POO) utilizando TypeScript e React.
 
-Currently, two official plugins are available:
+## 🎯 Conceitos de POO Aplicados
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+A arquitetura do projeto segue uma modelagem POO clara, separando a lógica de dados da visualização:
 
-## React Compiler
+| Conceito | Aplicação | Local |
+| :--- | :--- | :--- |
+| **Encapsulamento** | Uso de Interfaces (`ProductCardProps`, `FooterProps`) para definir contratos de dados, garantindo consistência e tipagem. | `src/components/` |
+| **Composição** | O componente `ProductList` é composto por múltiplos componentes `ProductCard`, organizando a visualização. | `src/components/ProductList.tsx` |
+| **Abstração** | Utilização de Classes Base (`Certificado`) para definir a estrutura principal dos produtos. | `src/models/Certificado.ts` |
+| **Herança** | Classes filhas (`CertificadoPessoaFisica`, `CertificadoPessoaJuridica`) herdam a estrutura da Classe `Certificado`. | `src/models/Certificado.ts` |
+| **Polimorfismo** | O método `getDetalhes()` é sobrescrito na classe `CertificadoPessoaJuridica` para um comportamento específico. | `src/models/Certificado.ts` |
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## ⚙️ Tecnologias Utilizadas
 
-## Expanding the ESLint configuration
+* **Framework:** React (v18+)
+* **Linguagem:** TypeScript
+* **Build Tool:** Vite
+* **Estilização:** Tailwind CSS (Altamente configurável e responsivo)
+* **Ícones:** Heroicons
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 💻 Como Baixar e Instalar
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### Pré-requisitos
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+Certifique-se de ter o Node.js (v16+) e o npm instalados.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+1.  **Clone o Repositório:**
+    ```bash
+    git clone SUA_URL_DO_GITHUB
+    cd lp-certificados
+    ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+2.  **Instale as Dependências:**
+    ```bash
+    npm install
+    ```
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Rodando o Projeto
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Para iniciar o servidor de desenvolvimento:
+
+```bash
+npm run dev
+O projeto estará disponível em http://localhost:5173/.
+
+🎨 Personalização
+1. Dados e Conteúdo
+Os dados de produtos e textos de CTAs são gerenciados no arquivo principal:
+
+Dados dos Certificados: Modifique as instâncias de classe em src/App.tsx (ex: new CertificadoPessoaFisica(...)).
+
+Textos Fixos: Altere os props passados para HeroSection e CallToAction em src/App.tsx.
+
+2. Estilo e Layout
+Componentes: Edite as classes Tailwind em src/components/*.tsx.
+
+Modelo POO: Para adicionar um novo tipo de certificado ou propriedade, edite src/models/Certificado.ts.
+
+☁️ Deploy (Hospedagem)
+O projeto está pronto para deploy como uma Aplicação de Página Única (SPA). Recomendamos provedores que se integram facilmente ao GitHub:
+
+Passo 1: Gerar a Versão de Produção
+No seu terminal, execute o comando de build (isso cria a pasta dist/ com todos os arquivos otimizados):
+
+Bash
+
+npm run build
