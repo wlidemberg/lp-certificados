@@ -18,7 +18,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ titulo, subTitulo, ctaLabel }
       transition: {
         duration: 0.8,
         delay: 0.5, // Delay para começar aparecer
-        ease: "easeOut",
+        
        }
     },
   }
