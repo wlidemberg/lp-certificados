@@ -3,6 +3,7 @@ import ProductList from './components/ProductList';
 import CallToAction from './components/CallToAction';
 import WhatsappButtonFloating from './components/WhatsappButtonFloating';
 import Footer from './components/Footer';
+import DescricaoCallToAction from './components/DescricaoCallToAction';
 
 // Importação das classe
 import { Certificado, CertificadoPessoaFisica, CertificadoPessoaJuridica } from './models/Certificado';
@@ -50,9 +51,15 @@ function App() {
         titulo = 'Dúvidas sobre o Certificado Ideal?'
         subtitulo = 'Nossa equipe está pronta para te guiar na escolha e instalação. Chame no WhatsApp!'
         whatsappNumero = '21968045339'
+        downloadLink='/assets/ebook-certficado-digital.pdf'
+        useParallax={true}
       />
 
-      {/* Seção Informativa (Polimorfismo do CTA)*/}
+      <DescricaoCallToAction
+        tituloEbook='Evite Erros de Validação!'
+      />
+
+      {/* 4. Seção Informativa (Polimorfismo do CTA)*/}
       <CallToAction 
         titulo = 'Cetificado Digital em 30 Minutos!'
         subtitulo = 'Não perca te,po! Agende sua emissão 100% online hoje mesmo.'

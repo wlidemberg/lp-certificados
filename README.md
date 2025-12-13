@@ -1,6 +1,6 @@
 # 🚀 Landing Page de Certificados Digitais
 
-Projeto de Landing Page construído com foco em Arquitetura de Software e aplicação dos princípios de Programação Orientada a Objetos (POO) utilizando TypeScript e React.
+Projeto de Landing Page construído com foco em Arquitetura de Software e aplicação dos princípios de Programação Orientada a Objetos (POO) utilizando TypeScript e React. O projeto utiliza animações de rolagem e efeitos visuais avançados para maximizar a conversão.
 
 ## 🎯 Conceitos de POO Aplicados
 
@@ -9,17 +9,18 @@ A arquitetura do projeto segue uma modelagem POO clara, separando a lógica de d
 | Conceito | Aplicação | Local |
 | :--- | :--- | :--- |
 | **Encapsulamento** | Uso de Interfaces (`ProductCardProps`, `FooterProps`) para definir contratos de dados, garantindo consistência e tipagem. | `src/components/` |
-| **Composição** | O componente `ProductList` é composto por múltiplos componentes `ProductCard`, organizando a visualização. | `src/components/ProductList.tsx` |
+| **Composição** | Componentes como `ProductList` e `DescricaoCallToAction` são combinados no `App.tsx`, organizando a estrutura da página. | `src/components/` |
 | **Abstração** | Utilização de Classes Base (`Certificado`) para definir a estrutura principal dos produtos. | `src/models/Certificado.ts` |
 | **Herança** | Classes filhas (`CertificadoPessoaFisica`, `CertificadoPessoaJuridica`) herdam a estrutura da Classe `Certificado`. | `src/models/Certificado.ts` |
 | **Polimorfismo** | O método `getDetalhes()` é sobrescrito na classe `CertificadoPessoaJuridica` para um comportamento específico. | `src/models/Certificado.ts` |
 
-## ⚙️ Tecnologias Utilizadas
+## ⚙️ Tecnologias e Recursos Visuais Utilizados
 
 * **Framework:** React (v18+)
 * **Linguagem:** TypeScript
-* **Build Tool:** Vite
-* **Estilização:** Tailwind CSS (Altamente configurável e responsivo)
+* **Estilização:** Tailwind CSS (Responsivo)
+* **Animação:** **Framer Motion** (Utilizado para `fade-in` suave no scroll: `whileInView`)
+* **Efeito Visual:** Imagens de fundo com efeito **Parallax** (`bg-fixed`) nas seções de CTA.
 * **Ícones:** Heroicons
 
 ## 💻 Como Baixar e Instalar
@@ -34,7 +35,7 @@ Certifique-se de ter o Node.js (v16+) e o npm instalados.
     cd lp-certificados
     ```
 
-2.  **Instale as Dependências:**
+2.  **Instale as Dependências (Incluindo Framer Motion):**
     ```bash
     npm install
     ```
@@ -48,24 +49,12 @@ npm run dev
 O projeto estará disponível em http://localhost:5173/.
 
 🎨 Personalização
-1. Dados e Conteúdo
-Os dados de produtos e textos de CTAs são gerenciados no arquivo principal:
+1. Conteúdo e Dados
+Dados dos Certificados: Modifique as instâncias de classe em src/App.tsx.
 
-Dados dos Certificados: Modifique as instâncias de classe em src/App.tsx (ex: new CertificadoPessoaFisica(...)).
+Imagens de Fundo (BG): As imagens são configuradas no tailwind.config.js e devem estar na pasta public/assets/.
 
-Textos Fixos: Altere os props passados para HeroSection e CallToAction em src/App.tsx.
+2. Estilo e Animações
+Animações de Rolagem: As configurações de fade-in (variants, initial, whileInView) podem ser ajustadas nos componentes (HeroSection.tsx, CallToAction.tsx).
 
-2. Estilo e Layout
-Componentes: Edite as classes Tailwind em src/components/*.tsx.
-
-Modelo POO: Para adicionar um novo tipo de certificado ou propriedade, edite src/models/Certificado.ts.
-
-☁️ Deploy (Hospedagem)
-O projeto está pronto para deploy como uma Aplicação de Página Única (SPA). Recomendamos provedores que se integram facilmente ao GitHub:
-
-Passo 1: Gerar a Versão de Produção
-No seu terminal, execute o comando de build (isso cria a pasta dist/ com todos os arquivos otimizados):
-
-Bash
-
-npm run build
+Parallax: A classe bg-fixed é aplicada condicionalmente no CallToAction.tsx.

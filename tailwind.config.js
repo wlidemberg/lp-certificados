@@ -6,7 +6,12 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage:{
+        'hero-bg':"url('/assets/certificado-bg.jpg')",
+        'bg-parallax':'url("/assets/bg-parallax.jpg")',
+      }
+    },
   },
   plugins: [],
 }
