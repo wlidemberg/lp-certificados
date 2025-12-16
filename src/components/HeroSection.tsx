@@ -40,12 +40,12 @@ const HeroSection: React.FC<HeroSectionProps> = ({ nomeEmpresa, titulo, subTitul
           animate="visible"
       >
         {nomeEmpresa && (
-          <h1 className='text-3xl md:text-5xl text-purple-950 font-black mb-4'>
+          <h1 className='text-3xl md:text-5xl text-gray-300 font-black mb-4'>
             {nomeEmpresa}
           </h1>
         )}
 
-        <h2 className="text-2xl md:text-5xl font-bold text-blue-800 mb-4">
+        <h2 className="text-2xl md:text-5xl font-bold text-gray-800 mb-4">
           {titulo}
         </h2>
         <p className="text-base md:text-xl text-white mb-8">
