@@ -37,7 +37,6 @@ function App() {
   return (
     <>
       <HeroSection 
-        nomeEmpresa='IDCERT Certificados Digitais'
         titulo="Certificados Digitais que Impulsionam Seus Negócios"
         subTitulo="Emita seu Certificado Digital com a segurança e rapidez que você precisa. Validação online e emissão em até 30 minutos, sem sair de casa. A sua assinatura digital válida e segura, garantindo a validade jurídica de todos os seus documentos."
         ctaLabel="Entre em Contato Agora!"
@@ -78,7 +77,7 @@ function App() {
 
       {/* 6. Rodapé */}
       <Footer 
-        nomeEmpresa='IDCERT Certificados Digitais'
+        nomeEmpresa='IDECert Certificados Digitais'
         whatsappNumero='21968045339'
         emailEmpresa='automatizei@gmail.com'
       />  

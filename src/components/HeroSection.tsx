@@ -1,16 +1,16 @@
 import { motion } from 'framer-motion';
 
 
+
 // 1. Definição da Interface (Contrato/Encapsulamento)
 interface HeroSectionProps {
-  nomeEmpresa?:string;
   titulo: string;
   subTitulo: string;
   ctaLabel: string; // Call To Action Label (Texto do Botão)
 }
 
 // 2. Componente Funcional com classes Tailwind
-const HeroSection: React.FC<HeroSectionProps> = ({ nomeEmpresa, titulo, subTitulo, ctaLabel }) => {
+const HeroSection: React.FC<HeroSectionProps> = ({ titulo, subTitulo, ctaLabel }) => {
 
   
   // Configuração da Animação (Framer Motion Variants)
@@ -39,15 +39,10 @@ const HeroSection: React.FC<HeroSectionProps> = ({ nomeEmpresa, titulo, subTitul
           initial="hidden"
           animate="visible"
       >
-        {nomeEmpresa && (
-          <h1 className='text-3xl md:text-5xl text-gray-300 font-black mb-4'>
-            {nomeEmpresa}
-          </h1>
-        )}
-
-        <h2 className="text-1xl md:text-5xl font-bold text-purple-500 mb-4">
+        <img src="logo.png" alt="IDECert Certificados Digitais" />
+        <h1 className="text-1xl md:text-5xl font-bold text-purple-500 mb-4">
           {titulo}
-        </h2>
+        </h1>
         <p className="text-base md:text-xl text-white mb-8">
           {subTitulo}
         </p>
