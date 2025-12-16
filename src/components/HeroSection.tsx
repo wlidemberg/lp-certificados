@@ -30,7 +30,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ nomeEmpresa, titulo, subTitul
   return (
     <section className="text-center py-32 bg-hero-bg bg-cover bg-center relative" style={{height: '768px'}}>
       {/* Adiciona um overlay escuro para o texto se destacar */}
-      <div className="absolute inset-0 bg-gray-900 opacity-30"></div>
+      <div className="absolute inset-0 bg-gray-900 opacity-50"></div>
       {/* motion.div */}
       
       <motion.div 
@@ -40,15 +40,15 @@ const HeroSection: React.FC<HeroSectionProps> = ({ nomeEmpresa, titulo, subTitul
           animate="visible"
       >
         {nomeEmpresa && (
-          <h1 className='text-5xl text-purple-950 font-black mb-4'>
+          <h1 className='text-3xl md:text-5xl text-purple-950 font-black mb-4'>
             {nomeEmpresa}
           </h1>
         )}
 
-        <h2 className="text-5xl font-bold text-blue-800 mb-4">
+        <h2 className="text-2xl md:text-5xl font-bold text-blue-800 mb-4">
           {titulo}
         </h2>
-        <p className="text-xl text-white mb-8">
+        <p className="text-base md:text-xl text-white mb-8">
           {subTitulo}
         </p>
         <button className="max-w-[320px] mx-auto bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 px-8 rounded-lg shadow-lg transition duration-300">

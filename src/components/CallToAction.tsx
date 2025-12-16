@@ -64,21 +64,21 @@ const CallToAction: React.FC<CallToActionProps> = ({titulo, subtitulo, whatsappN
                             <h3 className="text-3xl md-text-4xl font-bold mb-4">{titulo}</h3>
                             <p className="text-lg mb-8">{subtitulo}</p>
 
-                            <div className={`flex justify-center items-center gap-4`}>
+                            <div className={`flex flex-col sm:flex-row justify-center items-center gap-4`}>
                                 {/* Novo botão de download (só aparece se houver downloadLink) */}
                                 {downloadLink && (
                                     <a href={downloadLink}
                                     target='_blank'
                                     rel='noopener noferrer'
                                     download
-                                    className='inline-flex items-center bg-transparent border-2 border-white hover:bg-white hover:text-blue-900 text-white font-bold py-3 px-8 duration-300 transform hover:scale-105' 
+                                    className='w-full sm:w-auto inline-flex items-center bg-transparent border-2 border-white hover:bg-white hover:text-blue-900 text-white font-bold py-3 px-8 duration-300 transform hover:scale-105' 
                                     >
                                         <ArrowDownTrayIcon className='w-6 h-6 mr-2' /> Baixar E-book Certificados Digitais
                                     </a>
                                 )}
 
                                 {/* Botão CTA para whatsApp */}
-                                <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="inline-flex items-center bg-green-500 hover:bg-green-600 text-white border-green-600 border-2 font-bold py-3 px-8 rouded-full shadow-xl transtion duration-300 transform hover:scale-105">
+                                <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto inline-flex items-center bg-green-500 hover:bg-green-600 text-white border-green-600 border-2 font-bold py-3 px-8 rouded-full shadow-xl transtion duration-300 transform hover:scale-105">
                                     <PhoneIcon className="w-6 h-6 mr-2" />
                                     Fale com um Especialista Agora!
                                 </a>
