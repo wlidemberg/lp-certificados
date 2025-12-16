@@ -8,6 +8,7 @@ import DescricaoCallToAction from './components/DescricaoCallToAction';
 // Importação das classe
 import { Certificado, CertificadoPessoaFisica, CertificadoPessoaJuridica } from './models/Certificado';
 import { type ProductCardProps } from './components/ProductCard'
+import NewsletterSection from './components/NewsletterSection';
 
 // 1. Instaciação de Objeros (Herença)
 const produtosInstanciados: Certificado[] = [
@@ -36,9 +37,10 @@ function App() {
   return (
     <>
       <HeroSection 
+        nomeEmpresa='IDCERT Certificados Digitais'
         titulo="Certificados Digitais que Impulsionam Seus Negócios"
-        subTitulo="Escolha o modelo A1 ou A3 e-CPF ou e-CNPJ. Rápido e 100% Online."
-        ctaLabel="Ver Planos e Preços Agora"
+        subTitulo="Emita seu Certificado Digital com a segurança e rapidez que você precisa. Validação online e emissão em até 30 minutos, sem sair de casa. A sua assinatura digital válida e segura, garantindo a validade jurídica de todos os seus documentos."
+        ctaLabel="Entre em Contato Agora!"
       />
 
       {/* Lista de Produtos (Composição) */}
@@ -55,15 +57,20 @@ function App() {
         useParallax={true}
       />
 
+
       <DescricaoCallToAction
         tituloEbook='Evite Erros de Validação!'
       />
 
+      <NewsletterSection />
+
       {/* 4. Seção Informativa (Polimorfismo do CTA)*/}
       <CallToAction 
         titulo = 'Cetificado Digital em 30 Minutos!'
-        subtitulo = 'Não perca te,po! Agende sua emissão 100% online hoje mesmo.'
+        subtitulo = 'Não perca tempo com agendamentos! Validação 100% online e emissão rápida. É só comprar e emitir no mesmo dia, garantindo que sua empresa ou CPF esteja ativo imediatamente.'
         whatsappNumero = '21968045339'
+        imagemSrc='/assets/negocio.jpg'
+        reverteLayout={false}
       />
 
       {/* 5. Botão Flutuante */}
