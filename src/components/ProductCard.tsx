@@ -21,7 +21,7 @@ const ProductCard: React.FC<ProductCardProps> = ({nome, preco, descricao})  => {
                 <span className="text-3xl font-extrabold text-orage-600">
                     R$ {preco.toFixed(2).replace('.', ',')}
                 </span>
-                <span className="text-sm text-gray-500">/ ano</span>
+                <span className="text-sm text-gray-500"></span>
             </div>
 
             {/* Botão de Ação */}
