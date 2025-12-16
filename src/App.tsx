@@ -12,7 +12,7 @@ import NewsletterSection from './components/NewsletterSection';
 
 // 1. Instaciação de Objeros (Herença)
 const produtosInstanciados: Certificado[] = [
-  new CertificadoPessoaFisica("e-CNPJ A1 (1 Ano)", 89.90, "Certificado digital para pessoa física, válido por 1 ano, 100% online."),
+  new CertificadoPessoaFisica("e-CPF A1 (1 Ano)", 89.90, "Certificado digital para pessoa física, válido por 1 ano, 100% online."),
   new CertificadoPessoaFisica("e-CPF A3 (3 Anos", 249.90, "Certificado Digital e-CPF A3 com validade de 3 anos, perfeito para quem precisa de maior durabilidade e segurança extra."),
   new CertificadoPessoaJuridica("e-CNPJ A1 (1Ano)", 165.90, "Certificado Digital e-CNPJ A1 em arquivo com validade de 1 ano, ideal para empresas que buscam agilidade e proteção nas transações online."),
   new CertificadoPessoaJuridica("e-CNPJ A3 (3 Anos)", 349.90, "Certificado Digital e-CNPJ A3 com validade de 3 anos, excelente para empresas que necessitam de maior segurança e durabilidade.")
