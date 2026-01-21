@@ -1,89 +1,115 @@
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import Header from './components/Header';
+import Footer from './components/Footer';
+
+import ContatoPage from './components/pages/ContatoPage';
+import TermosPage from './components/pages/TermosPage';
+
+// Importa todos os componentes da Landing Page para a rota HOME
 import HeroSection from './components/HeroSection';
 import ProductList from './components/ProductList';
 import CallToAction from './components/CallToAction';
+import NewsletterSection from './components/NewsletterSection';
 import WhatsappButtonFloating from './components/WhatsappButtonFloating';
-import Footer from './components/Footer';
-import DescricaoCallToAction from './components/DescricaoCallToAction';
 
 // Importação das classe
 import { Certificado, CertificadoPessoaFisica, CertificadoPessoaJuridica } from './models/Certificado';
 import { type ProductCardProps } from './components/ProductCard'
-import NewsletterSection from './components/NewsletterSection';
 
-// 1. Instaciação de Objeros (Herença)
-const produtosInstanciados: Certificado[] = [
-  new CertificadoPessoaFisica("e-CPF A1 (1 Ano)", 89.90, "Certificado digital para pessoa física, válido por 1 ano, 100% online."),
-  new CertificadoPessoaFisica("e-CPF A3 (3 Anos)", 249.90, "Certificado Digital e-CPF A3 com validade de 3 anos, perfeito para quem precisa de maior durabilidade e segurança extra."),
-  new CertificadoPessoaJuridica("e-CNPJ A1 (1Ano)", 165.90, "Certificado Digital e-CNPJ A1 em arquivo com validade de 1 ano, ideal para empresas que buscam agilidade e proteção nas transações online."),
-  new CertificadoPessoaJuridica("e-CNPJ A3 (3 Anos)", 349.90, "Certificado Digital e-CNPJ A3 com validade de 3 anos, excelente para empresas que necessitam de maior segurança e durabilidade.")
-]
+import DescricaoCallToAction from './components/DescricaoCallToAction';
 
-// 2. Consversão para o formato de Props (Visão do Componente)
-// Esta função extrai apenas os dados que o componente visual precisa (nome, preco, descricao)
-const mockProducts: ProductCardProps[] = produtosInstanciados.map(produto => ({
-  nome: produto.nome,
-  preco: produto.preco,
-  descricao: produto.descricao,
-
-  // Método da classe para incluir detalhes avançados no futuro.
-  // detalhesAvancados: produto.getDetalesCertificado()
-}));
+import ModalContato from './components/ModalContato';
 
 
+const App:React.FC = () => {
+    // 1. Instaciação de Objeros (Herença)
+    const produtosInstanciados: Certificado[] = [
+      new CertificadoPessoaFisica("e-CPF A1 (1 Ano)", 89.90, "Certificado digital para pessoa física, válido por 1 ano, 100% online."),
+      new CertificadoPessoaFisica("e-CPF A3 (3 Anos", 249.90, "Certificado Digital e-CPF A3 com validade de 3 anos, perfeito para quem precisa de maior durabilidade e segurança extra."),
+      new CertificadoPessoaJuridica("e-CNPJ A1 (1Ano)", 165.90, "Certificado Digital e-CNPJ A1 em arquivo com validade de 1 ano, ideal para empresas que buscam agilidade e proteção nas transações online."),
+      new CertificadoPessoaJuridica("e-CNPJ A3 (3 Anos)", 349.90, "Certificado Digital e-CNPJ A3 com validade de 3 anos, excelente para empresas que necessitam de maior segurança e durabilidade.")
+    ]
+    
+    // 2. Consversão para o formato de Props (Visão do Componente)
+    // Esta função extrai apenas os dados que o componente visual precisa (nome, preco, descricao)
+    const mockProducts: ProductCardProps[] = produtosInstanciados.map(produto => ({
+      nome: produto.nome,
+      preco: produto.preco,
+      descricao: produto.descricao,
+    
+      // Método da classe para incluir detalhes avançados no futuro.
+      // detalhesAvancados: produto.getDetalesCertificado()
+    }));
+
+    const LandingPage = (
+        <>
+           <HeroSection 
+                titulo="Certificados Digitais que Impulsionam Seus Negócios"
+                subTitulo="Emita seu Certificado Digital com a segurança e rapidez que você precisa. Validação online e emissão em até 30 minutos, sem sair de casa. A sua assinatura digital válida e segura, garantindo a validade jurídica de todos os seus documentos."
+                ctaLabel="Entre em Contato Agora!"
+            />
+
+            {/* Lista de Produtos (Composição) */}
+            <ProductList 
+                produtos={mockProducts}
+            />
+
+            {/* 3. Seção CTA de suporte e vendas */}
+            <CallToAction 
+                titulo = 'Dúvidas sobre o Certificado Ideal?'
+                subtitulo = 'Nossa equipe está pronta para te guiar na escolha e instalação. Chame no WhatsApp!'
+                whatsappNumero = '21968045339'
+                downloadLink='/assets/ebook-certficado-digital.pdf'
+                useParallax={true}
+            />
 
 
-function App() {
+            <DescricaoCallToAction
+                tituloEbook='Evite Erros de Validação!'
+            />
 
-  return (
-    <>
-      <HeroSection 
-        titulo="Certificados Digitais que Impulsionam Seus Negócios"
-        subTitulo="Emita seu Certificado Digital com a segurança e rapidez que você precisa. Validação online e emissão em até 30 minutos, sem sair de casa. A sua assinatura digital válida e segura, garantindo a validade jurídica de todos os seus documentos."
-        ctaLabel="Entre em Contato Agora!"
-      />
+            <NewsletterSection />
 
-      {/* Lista de Produtos (Composição) */}
-      <ProductList 
-        produtos={mockProducts}
-      />
+            {/* 4. Seção Informativa (Polimorfismo do CTA)*/}
+            <CallToAction 
+                titulo = 'Cetificado Digital em 30 Minutos!'
+                subtitulo = 'Não perca tempo com agendamentos! Validação 100% online e emissão rápida. É só comprar e emitir no mesmo dia, garantindo que sua empresa ou CPF esteja ativo imediatamente.'
+                whatsappNumero = '21968045339'
+                imagemSrc='/assets/negocio.jpg'
+                reverteLayout={false}
+            />
 
-      {/* 3. Seção CTA de suporte e vendas */}
-      <CallToAction 
-        titulo = 'Dúvidas sobre o Certificado Ideal?'
-        subtitulo = 'Nossa equipe está pronta para te guiar na escolha e instalação. Chame no WhatsApp!'
-        whatsappNumero = '21968045339'
-        downloadLink='/assets/ebook-certficado-digital.pdf'
-        useParallax={true}
-      />
+            {/* 5. Botão Flutuante */}
+            <WhatsappButtonFloating whatsappNumeroFloating='21968045339' />
 
+            {/* 6. Rodapé */}
+            <Footer 
+                nomeEmpresa='IDECert Certificados Digitais'
+                whatsappNumero='21968045339'
+                emailEmpresa='automatizei@gmail.com'
+            />  
+        </>
+    );
 
-      <DescricaoCallToAction
-        tituloEbook='Evite Erros de Validação!'
-      />
+    return(
+        <div className='min=h-screen flex flex-col'>
+            <Header />
 
-      <NewsletterSection />
+            {/* Modal */}
+            <ModalContato />
 
-      {/* 4. Seção Informativa (Polimorfismo do CTA)*/}
-      <CallToAction 
-        titulo = 'Cetificado Digital em 30 Minutos!'
-        subtitulo = 'Não perca tempo com agendamentos! Validação 100% online e emissão rápida. É só comprar e emitir no mesmo dia, garantindo que sua empresa ou CPF esteja ativo imediatamente.'
-        whatsappNumero = '21968045339'
-        imagemSrc='/assets/negocio.jpg'
-        reverteLayout={false}
-      />
+            <main className='flex-grow'>
+                <Routes>
+                    <Route path='/' element={LandingPage} />
 
-      {/* 5. Botão Flutuante */}
-      <WhatsappButtonFloating whatsappNumeroFloating='21968045339' />
+                    <Route path='/contato' element={<ContatoPage />} />
 
-      {/* 6. Rodapé */}
-      <Footer 
-        nomeEmpresa='IDECert Certificados Digitais'
-        whatsappNumero='21968045339'
-        emailEmpresa='automatizei@gmail.com'
-      />  
-      
-    </>
-  );
-
+                    <Route path='/termos' element={<TermosPage />} />
+                </Routes>
+            </main>
+        </div>
+    );
+    
 }
-export default App
+export default App;

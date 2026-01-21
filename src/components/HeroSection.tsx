@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { useUI } from '../context/UIContext';
 
 
 
@@ -12,6 +13,7 @@ interface HeroSectionProps {
 // 2. Componente Funcional com classes Tailwind
 const HeroSection: React.FC<HeroSectionProps> = ({ titulo, subTitulo, ctaLabel }) => {
 
+    const { openModal } = useUI();
   
   // Configuração da Animação (Framer Motion Variants)
   const containerVariants = {
@@ -28,7 +30,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ titulo, subTitulo, ctaLabel }
   }
 
   return (
-    <section className="text-center py-32 bg-hero-bg bg-cover bg-center relative" style={{height: '768px'}}>
+    <section className="text-center py-16 bg-hero-bg bg-cover bg-center relative" >
       {/* Adiciona um overlay escuro para o texto se destacar */}
       <div className="absolute inset-0 bg-gray-900 opacity-90"></div>
       {/* motion.div */}
@@ -39,14 +41,17 @@ const HeroSection: React.FC<HeroSectionProps> = ({ titulo, subTitulo, ctaLabel }
           initial="hidden"
           animate="visible"
       >
-        <img src="logo.png" alt="IDECert Certificados Digitais" />
+        <img src="logo.png" alt="IDECert Certificados" />
         <h1 className="text-1xl md:text-5xl font-bold text-purple-500 mb-4">
           {titulo}
         </h1>
         <p className="text-base md:text-xl text-white mb-8">
           {subTitulo}
         </p>
-        <button className="max-w-[320px] mx-auto bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 px-8 rounded-lg shadow-lg transition duration-300">
+        <button 
+          onClick={openModal}
+          className="max-w-[320px] mx-auto bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 px-8 rounded-lg shadow-lg transition duration-300"
+          >
           {ctaLabel}
         </button>
       </motion.div>

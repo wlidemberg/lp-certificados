@@ -1,5 +1,6 @@
 import { PhoneIcon } from '@heroicons/react/24/solid';
 import { EnvelopeIcon } from '@heroicons/react/24/solid';
+import { Link } from 'react-router-dom';
 
 // Contrato do componente Footer (o que ele espera receber)
 interface FooterProps {
@@ -25,12 +26,32 @@ const Footer: React.FC<FooterProps> = ({nomeEmpresa, whatsappNumero, emailEmpres
                     {/* Coluna 2: Links Rápidos */}
                     <div className="md:col-span-1">
                         <h4 className="text-xs font-bold mb-4 text-purple-700">Links Rápidos</h4>
-                        <ul className="space-y-2 text-sm">
-                            <li><a href="#" className="text-gray-400 hover:text-purple-500 transition duration-300">Tipos de Certificados</a></li>
-                            <li><a href="#" className="text-gray-400 hover:text-purple-500 transition duration-300">Como Comprar</a></li>
-                            <li><a href="#" className="text-gray-400 hover:text-purple-500 transition duration-300">Validação Online</a></li>
-                            <li><a href="#" className="text-gray-400 hover:text-purple-500 transition duration-300">Fale Conosco</a></li>
-                        </ul>
+                        {/* Links de Navegação */}
+                        <nav className='flex flex-col'>
+                            {/* Link para a Home, usando Link */}
+                            <Link 
+                            to="/" 
+                            className="text-gray-400 hover:text-blue-400 transition duration-300 text-sm"
+                            >
+                            Home
+                            </Link>
+                            
+                            {/* Link para a nova página de Contato, usando Link */}
+                            <Link 
+                            to="/contato" 
+                            className="text-gray-400 hover:text-blue-400 transition duration-300 text-sm"
+                            >
+                            Contato
+                            </Link>
+
+                            {/* Link para Termos de Uso, usando Link */}
+                            <Link 
+                            to="/termos" 
+                            className="text-gray-400 hover:text-blue-400 transition duration-300 text-sm"
+                            >
+                            Termos de Uso
+                            </Link>
+                        </nav>    
                     </div>
 
                     {/* Coluna 3: Contato */}
